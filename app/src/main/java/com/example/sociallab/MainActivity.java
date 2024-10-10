@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         etPass = findViewById(R.id.ETPass);
         btnInicioSesion = findViewById(R.id.buttonInicioSesion);
         btnRegistro = findViewById(R.id.buttonRegistro);
-        textOlvidastePass = findViewById(R.id.textView4);
+        textOlvidastePass = findViewById(R.id.textVolvidoPass);
 
         // Acción para botón de Inicio de Sesión
         btnInicioSesion.setOnClickListener(new View.OnClickListener() {
@@ -33,13 +34,22 @@ public class MainActivity extends AppCompatActivity {
                 String usuario = etUsuario.getText().toString();
                 String contraseña = etPass.getText().toString();
 
-                // Lógica de autenticación (agrega la tuya aquí)
-                if (usuario.equals("admin") && contraseña.equals("1234")) {
-                    // Si es correcto, ir a otra actividad
-                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                    startActivity(intent);
+                // Validar que los campos no estén vacíos
+                if (usuario.isEmpty() || contraseña.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Mostrar error o manejar el fallo
+                    // Lógica de autenticación
+                    if (usuario.equals("usuario") && contraseña.equals("1234")) {
+                        // Si es correcto, mostrar mensaje de éxito
+                        Toast.makeText(MainActivity.this, "Sesión iniciada exitosamente", Toast.LENGTH_SHORT).show();
+
+                        // Ir a otra actividad
+                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                    } else {
+                        // Mostrar mensaje de error
+                        Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

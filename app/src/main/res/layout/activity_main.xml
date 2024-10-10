@@ -44,6 +44,7 @@
         android:id="@+id/ETUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:hint="Ingresa tu usuario"
         app:layout_constraintStart_toEndOf="@id/textVUsuario"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="10dp"
@@ -63,6 +64,7 @@
         android:id="@+id/ETPass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:hint="Ingresa tu contraseña"
         app:layout_constraintStart_toEndOf="@id/textVPass"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="10dp"
@@ -70,7 +72,7 @@
         app:layout_constraintTop_toTopOf="@id/textVPass"/>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textVolvidoPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Olvidaste tu contraseña?"
@@ -84,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Iniciar Sesión"
-        app:layout_constraintTop_toBottomOf="@id/textView4"
+        app:layout_constraintTop_toBottomOf="@id/textVolvidoPass"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"/>
